@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [15/Apr/2021:14:44:50 -0300] "GET /InschrijfApp/api/school/getAll HTTP/1.1" 500 23977 http-bio-7070-exec-1 1137
+0:0:0:0:0:0:0:1 - - [15/Apr/2021:14:44:51 -0300] "GET /InschrijfApp/api/school/getAll HTTP/1.1" 500 8009 http-bio-7070-exec-2 9

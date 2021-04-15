@@ -1,0 +1,9 @@
+sr\unasat\inschrijf\config\JPAConfiguration.class
+ApplicationConfig.class
+sr\unasat\inschrijf\controller\SchoolController.class
+sr\unasat\inschrijf\entities\NawGegevens.class
+sr\unasat\inschrijf\entities\District.class
+sr\unasat\inschrijf\DAO\SchoolDAO.class
+sr\unasat\inschrijf\entities\Inschrijving.class
+sr\unasat\inschrijf\entities\School.class
+sr\unasat\inschrijf\entities\SchoolNiveau.class
