@@ -2,22 +2,24 @@ package sr.unasat.inschrijf.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "school_niveau")
+@Entity(name = "school_niveau")
 public class SchoolNiveau {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "niveau_id")
     private long niveauId;
-    @Column
+    @Column(updatable = false)
     private String naam;
-    @Column
+    @Column(updatable = false)
     private double prijs;
 
     public SchoolNiveau(long niveauId, String naam, double prijs) {
         this.niveauId = niveauId;
         this.naam = naam;
         this.prijs = prijs;
+    }
+
+    public SchoolNiveau() {
     }
 
     public long getNiveauId() {
@@ -42,14 +44,5 @@ public class SchoolNiveau {
 
     public void setPrijs(double prijs) {
         this.prijs = prijs;
-    }
-
-    @Override
-    public String toString() {
-        return "SchoolNiveau{" +
-                "niveauId=" + niveauId +
-                ", naam='" + naam + '\'' +
-                ", prijs=" + prijs +
-                '}';
     }
 }

@@ -1,9 +1,13 @@
-C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\config\JPAConfiguration.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\controller\SchoolController.java
+C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\controller\DistrictController.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\entities\SchoolNiveau.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\DAO\SchoolDAO.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\ApplicationConfig.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\entities\School.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\entities\District.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\entities\NawGegevens.java
+C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\controller\SchoolNiveauController.java
 C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\entities\Inschrijving.java
+C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\config\JPAConfiguration.java
+C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\DAO\DistrictDAO.java
+C:\Workspace\Unasat\5.2\InschrijfApp\src\main\java\sr\unasat\inschrijf\DAO\SchoolNiveauDAO.java

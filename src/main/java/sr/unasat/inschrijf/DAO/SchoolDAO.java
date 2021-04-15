@@ -26,11 +26,18 @@ public class SchoolDAO {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
-            System.out.println(e);
         }
-//        List<School> schoolList = new ArrayList<School>();
-//        schoolList.add(new School(1, 1, 1, "test", "test", "test", null, null));
         return schoolList;
+    }
+
+    public School findSchoolById(long schoolId) {
+        entityManager.getTransaction().begin();
+        String jpql = "select s from school s where s.schoolId = :schoolId";
+        TypedQuery<School> query = entityManager.createQuery(jpql, School.class);
+        query.setParameter("schoolId", schoolId);
+        School school = query.getSingleResult();
+        entityManager.getTransaction().commit();
+        return school;
     }
 
     public School insertSchool(School school) {

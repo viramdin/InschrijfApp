@@ -2,19 +2,21 @@ package sr.unasat.inschrijf.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "district")
+@Entity(name = "district")
 public class District {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "district_id")
     private long districtId;
-    @Column
+    @Column(updatable = false)
     private String naam;
 
     public District(long districtId, String naam) {
         this.districtId = districtId;
         this.naam = naam;
+    }
+
+    public District() {
     }
 
     public long getDistrictId() {
@@ -31,13 +33,5 @@ public class District {
 
     public void setNaam(String naam) {
         this.naam = naam;
-    }
-
-    @Override
-    public String toString() {
-        return "District{" +
-                "districtId=" + districtId +
-                ", naam='" + naam + '\'' +
-                '}';
     }
 }

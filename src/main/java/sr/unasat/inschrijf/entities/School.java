@@ -1,41 +1,33 @@
 package sr.unasat.inschrijf.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
-@Entity
-@Table(name = "school")
+@Entity(name = "school")
 public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "school_id")
     private long schoolId;
-    @Column(name = "niveau_id")
-    private long niveauId;
-    @Column(name = "district_id")
-    private long districtId;
-    @Column
+    @ManyToOne()
+    @JoinColumn(name = "district_id")
+    private District district;
+    @ManyToOne()
+    @JoinColumn(name = "niveau_id")
+    private SchoolNiveau schoolNiveau;
     private String naam;
-    @Column
     private String adres;
-    @Column
     private String omschrijving;
-    @ManyToOne
-    @JoinColumn(name = "niveau_id", referencedColumnName = "niveau_id")
-    private List<SchoolNiveau> schoolNiveaus;
-    @ManyToOne
-    @JoinColumn(name = "district_id", referencedColumnName = "district_id")
-    private List<District> districts;
 
-    public School(long schoolId, long niveauId, long districtId, String naam, String adres, String omschrijving, List<SchoolNiveau> schoolNiveaus, List<District> districts) {
+    public School(long schoolId, District district, SchoolNiveau schoolNiveau, String naam, String adres, String omschrijving) {
         this.schoolId = schoolId;
-        this.niveauId = niveauId;
-        this.districtId = districtId;
+        this.district = district;
+        this.schoolNiveau = schoolNiveau;
         this.naam = naam;
         this.adres = adres;
         this.omschrijving = omschrijving;
-        this.schoolNiveaus = schoolNiveaus;
-        this.districts = districts;
+    }
+
+    public School() {
     }
 
     public long getSchoolId() {
@@ -46,20 +38,20 @@ public class School {
         this.schoolId = schoolId;
     }
 
-    public long getNiveauId() {
-        return niveauId;
+    public District getDistrict() {
+        return district;
     }
 
-    public void setNiveauId(long niveauId) {
-        this.niveauId = niveauId;
+    public void setDistrict(District district) {
+        this.district = district;
     }
 
-    public long getDistrictId() {
-        return districtId;
+    public SchoolNiveau getSchoolNiveau() {
+        return schoolNiveau;
     }
 
-    public void setDistrictId(long districtId) {
-        this.districtId = districtId;
+    public void setSchoolNiveau(SchoolNiveau schoolNiveau) {
+        this.schoolNiveau = schoolNiveau;
     }
 
     public String getNaam() {
@@ -84,35 +76,5 @@ public class School {
 
     public void setOmschrijving(String omschrijving) {
         this.omschrijving = omschrijving;
-    }
-
-    public List<SchoolNiveau> getSchoolNiveaus() {
-        return schoolNiveaus;
-    }
-
-    public void setSchoolNiveaus(List<SchoolNiveau> schoolNiveaus) {
-        this.schoolNiveaus = schoolNiveaus;
-    }
-
-    public List<District> getDistricts() {
-        return districts;
-    }
-
-    public void setDistricts(List<District> districts) {
-        this.districts = districts;
-    }
-
-    @Override
-    public String toString() {
-        return "School{" +
-                "schoolId=" + schoolId +
-                ", niveauId=" + niveauId +
-                ", districtId=" + districtId +
-                ", naam='" + naam + '\'' +
-                ", adres='" + adres + '\'' +
-                ", omschrijving='" + omschrijving + '\'' +
-                ", schoolNiveaus=" + schoolNiveaus +
-                ", districts=" + districts +
-                '}';
     }
 }

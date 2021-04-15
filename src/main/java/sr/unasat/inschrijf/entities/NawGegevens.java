@@ -1,28 +1,22 @@
 package sr.unasat.inschrijf.entities;
 
-import javax.lang.model.element.Name;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "naw_gegevens")
+@Entity(name = "naw_gegevens")
 public class NawGegevens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "gegevens_id")
     private long gegevensId;
     private String familienaam;
-    @Column
     private String naam;
-    @Column
     private LocalDate dob;
     @Column(name = "id_nummer")
     private String idNummer;
-    @Column
     private String geslacht;
     @Column(name = "telefoon_nr")
     private String telefoonNr;
-    @Column
     private String email;
 
     public NawGegevens(long gegevensId, String familienaam, String naam, LocalDate dob, String idNummer, String geslacht, String telefoonNr, String email) {
@@ -34,6 +28,9 @@ public class NawGegevens {
         this.geslacht = geslacht;
         this.telefoonNr = telefoonNr;
         this.email = email;
+    }
+
+    public NawGegevens() {
     }
 
     public long getGegevensId() {
@@ -98,19 +95,5 @@ public class NawGegevens {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "NawGegevens{" +
-                "gegevensId=" + gegevensId +
-                ", familienaam='" + familienaam + '\'' +
-                ", naam='" + naam + '\'' +
-                ", dob=" + dob +
-                ", idNummer='" + idNummer + '\'' +
-                ", geslacht='" + geslacht + '\'' +
-                ", telefoonNr='" + telefoonNr + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
