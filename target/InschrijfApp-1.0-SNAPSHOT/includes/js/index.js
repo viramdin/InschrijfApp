@@ -199,9 +199,6 @@ form.addEventListener('submit', function(e) {
 function openModal() {
     var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("btnAddSchool");
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
@@ -221,10 +218,16 @@ function openModal() {
             modal.style.display = "none";
         }
     }
+}
 
 
 
-    function changePrice(){
-        console.log("test");
-    }
+function changePrice(){
+    let niveauSelect = document.getElementById("niveau");
+    let niveauId = niveauSelect.value;
+    niveaus.forEach(item => {
+        if (item.niveauId == niveauId) {
+            document.getElementById("prijs").value = "SRD " + item.prijs;
+        }
+    });
 }

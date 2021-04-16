@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -48,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="./" class="nav-link active">
                             <i class="nav-icon fas fa-circle"></i>
                             <p>
                                 Scholen
@@ -81,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="./">Home</a></li>
                             <li class="breadcrumb-item active">Scholen</li>
                         </ol>
                     </div>
@@ -117,18 +113,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <form id="schoolForm">
                                                     <input type="hidden" id="schoolId">
                                                     <div class="form-group">
-                                                        <label for="naam">Naam</label>
+                                                        <label for="naam">Naam *</label>
                                                         <input type="text" class="form-control" id="naam"
-                                                               placeholder="Naam">
+                                                               placeholder="Naam" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="adres">Adres</label>
+                                                        <label for="adres">Adres *</label>
                                                         <input type="text" class="form-control" id="adres"
-                                                               placeholder="Adres">
+                                                               placeholder="Adres" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="distrikt">Distrikt</label>
-                                                        <select class="form-control" id="distrikt">
+                                                        <label for="distrikt">Distrikt *</label>
+                                                        <select class="form-control" id="distrikt" required>
                                                             <option disabled selected>Selecteer een distrikt</option>
                                                         </select>
                                                     </div>
@@ -138,8 +134,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                   rows="2"></textarea>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="niveau">Niveau</label>
-                                                        <select class="form-control" id="niveau" onchange="changePrice()">
+                                                        <label for="niveau">Niveau *</label>
+                                                        <select class="form-control" id="niveau" onchange="changePrice()" required>
                                                             <option disabled selected>Selecteer een niveau</option>
                                                         </select>
                                                     </div>

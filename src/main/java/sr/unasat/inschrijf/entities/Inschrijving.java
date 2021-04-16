@@ -1,5 +1,7 @@
 package sr.unasat.inschrijf.entities;
 
+import sr.unasat.inschrijf.builder.InschrijvingBuilder;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -9,7 +11,7 @@ public class Inschrijving {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "inschrijving_id")
     private long inschrijvingId;
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "gegevens_id")
     private NawGegevens gegevens;
     @ManyToOne()
@@ -23,6 +25,12 @@ public class Inschrijving {
         this.gegevens = gegevens;
         this.school = school;
         this.createdDate = createdDate;
+    }
+
+    public Inschrijving(InschrijvingBuilder inschrijvingBuilder) {
+        this.gegevens = inschrijvingBuilder.gegevens;
+        this.school = inschrijvingBuilder.school;
+        this.createdDate = inschrijvingBuilder.createdDate;
     }
 
     public Inschrijving() {

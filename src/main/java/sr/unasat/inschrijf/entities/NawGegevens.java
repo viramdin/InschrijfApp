@@ -2,6 +2,7 @@ package sr.unasat.inschrijf.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(name = "naw_gegevens")
 public class NawGegevens {
@@ -11,7 +12,7 @@ public class NawGegevens {
     private long gegevensId;
     private String familienaam;
     private String naam;
-    private LocalDate dob;
+    private Date dob;
     @Column(name = "id_nummer")
     private String idNummer;
     private String geslacht;
@@ -19,7 +20,7 @@ public class NawGegevens {
     private String telefoonNr;
     private String email;
 
-    public NawGegevens(long gegevensId, String familienaam, String naam, LocalDate dob, String idNummer, String geslacht, String telefoonNr, String email) {
+    public NawGegevens(long gegevensId, String familienaam, String naam, Date dob, String idNummer, String geslacht, String telefoonNr, String email) {
         this.gegevensId = gegevensId;
         this.familienaam = familienaam;
         this.naam = naam;
@@ -57,11 +58,11 @@ public class NawGegevens {
         this.naam = naam;
     }
 
-    public LocalDate getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
