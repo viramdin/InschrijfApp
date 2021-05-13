@@ -1,9 +1,6 @@
 ApplicationConfig.class
 sr\unasat\inschrijf\controller\SchoolController.class
 sr\unasat\inschrijf\DTO\InschrijvingDTO.class
-sr\unasat\inschrijf\entities\District.class
-sr\unasat\inschrijf\controller\DistrictController.class
-sr\unasat\inschrijf\DAO\DistrictDAO.class
 sr\unasat\inschrijf\kosten\StandaardKosten.class
 sr\unasat\inschrijf\entities\Kosten.class
 sr\unasat\inschrijf\betalingMethodes\Uni5Pay.class

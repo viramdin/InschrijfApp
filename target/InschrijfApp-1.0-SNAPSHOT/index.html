@@ -113,19 +113,29 @@
                                                 <form id="schoolForm">
                                                     <input type="hidden" id="schoolId">
                                                     <div class="form-group">
-                                                        <label for="naam">Naam</label>
+                                                        <label for="naam">Naam *</label>
                                                         <input type="text" class="form-control" id="naam"
-                                                               placeholder="Naam">
+                                                               placeholder="Naam" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="adres">Adres</label>
+                                                        <label for="adres">Adres *</label>
                                                         <input type="text" class="form-control" id="adres"
-                                                               placeholder="Adres">
+                                                               placeholder="Adres" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="distrikt">Distrikt</label>
-                                                        <select class="form-control" id="distrikt">
+                                                        <label for="distrikt">Distrikt *</label>
+                                                        <select class="form-control" id="distrikt" required>
                                                             <option disabled selected>Selecteer een distrikt</option>
+                                                            <option value="Brokopondo">Brokopondo</option>
+                                                            <option value="Commewijne">Commewijne</option>
+                                                            <option value="Coronie">Coronie</option>
+                                                            <option value="Marowijne">Marowijne</option>
+                                                            <option value="Nickerie">Nickerie</option>
+                                                            <option value="Para">Para</option>
+                                                            <option value="Paramaribo">Paramaribo</option>
+                                                            <option value="Saramacca">Saramacca</option>
+                                                            <option value="Sipaliwini">Sipaliwini</option>
+                                                            <option value="Wanica">Wanica</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -134,8 +144,9 @@
                                                                   rows="2"></textarea>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="niveau">Niveau</label>
-                                                        <select class="form-control" id="niveau" onchange="changePrice()">
+                                                        <label for="niveau">Niveau *</label>
+                                                        <select class="form-control" id="niveau"
+                                                                onchange="changePrice()" required>
                                                             <option disabled selected>Selecteer een niveau</option>
                                                         </select>
                                                     </div>

@@ -1,47 +1,14 @@
 let scholen;
-let distrikten;
 let niveaus;
 let isUpdate;
 
-populateScholenTabel();
-
 setTimeout(function() {
-    populateDistriktSelect();
+    populateScholenTabel();
 }, 250);
 
 setTimeout(function() {
     populateNiveauSelect();
-}, 500)
-
-
-
-function populateDistriktSelect() {
-    const DISTRIKT_URL_LIST = "api/district/getAll";
-    let distriktSelect = document.getElementById("distrikt");
-    distriktSelect.options.length = 0;
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            if (this.responseText) {
-                // handle response here
-                distrikten = JSON.parse(this.responseText);
-
-                distrikten.forEach(item => {
-                    //                    console.log(item);
-                    var option = document.createElement("option");
-                    option.value = item.districtId;
-                    option.text = item.naam;
-                    distriktSelect.add(option);
-                });
-
-            } else {
-                alert("Something went wrong retrieving the data");
-            }
-        }
-    };
-    xhttp.open("GET", DISTRIKT_URL_LIST, true);
-    xhttp.send();
-}
+}, 500);
 
 
 
@@ -91,7 +58,7 @@ function populateScholenTabel() {
                               <tr>
                                   <td>${item.naam}</td>
                                   <td>${item.adres}</td>
-                                  <td>${item.district.naam}</td>
+                                  <td>${item.district}</td>
                                   <td>${item.omschrijving}</td>
                                   <td>${item.schoolNiveau.naam}</td>
                                   <td>SRD ${item.schoolNiveau.prijs}</td>
@@ -122,7 +89,7 @@ function addOrEdit(schoolId) {
                 document.getElementById("schoolId").value = schoolId;
                 document.getElementById("naam").value = item.naam;
                 document.getElementById("adres").value = item.adres;
-                document.getElementById("distrikt").value = item.district.districtId;
+                document.getElementById("distrikt").value = item.district;
                 document.getElementById("omschrijving").innerHTML = item.omschrijving;
                 document.getElementById("niveau").value = item.schoolNiveau.niveauId;
                 document.getElementById("prijs").value = "SRD " + item.schoolNiveau.prijs;
@@ -155,7 +122,7 @@ form.addEventListener('submit', function(e) {
             schoolId: parseInt(document.getElementById('schoolId').value),
             naam: document.getElementById('naam').value,
             adres: document.getElementById('adres').value,
-            district: { districtId: parseInt(document.getElementById('distrikt').value) },
+            district: document.getElementById('distrikt').value,
             omschrijving: document.getElementById('omschrijving').value,
             schoolNiveau: { niveauId: parseInt(document.getElementById('niveau').value) }
         }
@@ -176,7 +143,7 @@ form.addEventListener('submit', function(e) {
             schoolId: parseInt(document.getElementById('schoolId').value),
             naam: document.getElementById('naam').value,
             adres: document.getElementById('adres').value,
-            district: { districtId: parseInt(document.getElementById('distrikt').value) },
+            district: document.getElementById('distrikt').value,
             omschrijving: document.getElementById('omschrijving').value,
             schoolNiveau: { niveauId: parseInt(document.getElementById('niveau').value) }
         }

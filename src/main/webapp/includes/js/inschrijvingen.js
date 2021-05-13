@@ -1,11 +1,13 @@
 let inschrijvingen;
 let scholen;
 
-populateInschrijvingenTabel();
+setTimeout(function() {
+    populateInschrijvingenTabel();
+}, 500);
 
 setTimeout(function() {
     populateScholenSelect();
-}, 250);
+}, 1000);
 
 
 

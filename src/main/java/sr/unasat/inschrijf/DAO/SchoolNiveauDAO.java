@@ -29,4 +29,20 @@ public class SchoolNiveauDAO {
         }
         return niveauList;
     }
+
+    public SchoolNiveau findSchoolNiveauById(long niveauId) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        SchoolNiveau schoolNiveau = new SchoolNiveau();
+        try {
+            transaction.begin();
+            String jpql = "select s from school_niveau s where s.niveauId = :niveauId";
+            TypedQuery<SchoolNiveau> query = entityManager.createQuery(jpql, SchoolNiveau.class);
+            query.setParameter("niveauId", niveauId);
+            schoolNiveau = query.getSingleResult();
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
+        return schoolNiveau;
+    }
 }

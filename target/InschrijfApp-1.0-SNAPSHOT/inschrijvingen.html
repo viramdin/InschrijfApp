@@ -96,7 +96,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <button class="btn btn-primary" id="btnAddInschrijving" onclick="addOrEdit()"><em
-                                        class="fa fa-plus"></em> Inschrijvingen toevoegen
+                                        class="fa fa-plus"></em> Inschrijving toevoegen
                                 </button>
 
                                 <!-- The Modal -->
@@ -113,34 +113,34 @@
                                                 <form id="inschrijvingForm">
                                                     <input type="hidden" id="inschrijvingId">
                                                     <div class="form-group">
-                                                        <label for="school">School</label>
-                                                        <select class="form-control" id="school">
+                                                        <label for="school">School *</label>
+                                                        <select class="form-control" id="school" required>
                                                             <option disabled selected>Selecteer een school</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="familienaam">Familienaam</label>
+                                                        <label for="familienaam">Familienaam *</label>
                                                         <input type="text" class="form-control" id="familienaam"
-                                                               placeholder="Familienaam">
+                                                               placeholder="Familienaam" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="voornaam">Voornaam</label>
+                                                        <label for="voornaam">Voornaam *</label>
                                                         <input type="text" class="form-control" id="voornaam"
-                                                               placeholder="Voornaam">
+                                                               placeholder="Voornaam" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="dob">Geboortedatum</label>
+                                                        <label for="dob">Geboortedatum *</label>
                                                         <input type="date" class="form-control" id="dob"
-                                                               placeholder="Geboortedatum">
+                                                               placeholder="Geboortedatum" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="idNummer">ID Nummer</label>
+                                                        <label for="idNummer">ID Nummer *</label>
                                                         <input type="text" class="form-control" id="idNummer"
-                                                               placeholder="ID Nummer">
+                                                               placeholder="ID Nummer" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="geslacht">Geslacht</label>
-                                                        <select class="form-control" id="geslacht">
+                                                        <label for="geslacht">Geslacht *</label>
+                                                        <select class="form-control" id="geslacht" required>
                                                             <option disabled selected>Selecteer een geslacht</option>
                                                             <option value="Man">Man</option>
                                                             <option value="Vrouw">Vrouw</option>
@@ -148,62 +148,68 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="telefoon">Telefoon</label>
+                                                        <label for="telefoon">Telefoon *</label>
                                                         <input type="text" class="form-control" id="telefoon"
-                                                               placeholder="Telefoon">
+                                                               placeholder="Telefoon" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="email">Email</label>
                                                         <input type="email" class="form-control" id="email"
                                                                placeholder="Email">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Additionele diensten</label>
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="additioneleKosten"
-                                                                               value="0">Geen</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="additioneleKosten" value="1">Boeken</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="additioneleKosten"
-                                                                               value="2">Bus</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="additioneleKosten" value="3">Beide</label>
+                                                    <div id="divRadio">
+                                                        <div class="form-group">
+                                                            <label>Additionele diensten *</label>
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="additioneleKosten"
+                                                                                   value="0" checked>Geen</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="additioneleKosten" value="1">Boeken</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="additioneleKosten"
+                                                                                   value="2">Bus</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="additioneleKosten" value="3">Beide</label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Betalingsmethode</label>
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="betalingMethode" value="option1">Crypto</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="betalingMethode" value="option2">HOP</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <label>
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="betalingMethode" value="option2">Uni5Pay</label>
+                                                        <div class="form-group">
+                                                            <label>Betalingsmethode *</label>
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="betalingMethode"
+                                                                                   value="option1"
+                                                                                   checked>Crypto</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="betalingMethode"
+                                                                                   value="option2">HOP</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="betalingMethode"
+                                                                                   value="option2">Uni5Pay</label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

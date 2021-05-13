@@ -8,9 +8,7 @@ public class School {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "school_id")
     private long schoolId;
-    @ManyToOne()
-    @JoinColumn(name = "district_id")
-    private District district;
+    private String district;
     @ManyToOne()
     @JoinColumn(name = "niveau_id")
     private SchoolNiveau schoolNiveau;
@@ -18,7 +16,7 @@ public class School {
     private String adres;
     private String omschrijving;
 
-    public School(long schoolId, District district, SchoolNiveau schoolNiveau, String naam, String adres, String omschrijving) {
+    public School(long schoolId, String district, SchoolNiveau schoolNiveau, String naam, String adres, String omschrijving) {
         this.schoolId = schoolId;
         this.district = district;
         this.schoolNiveau = schoolNiveau;
@@ -38,11 +36,11 @@ public class School {
         this.schoolId = schoolId;
     }
 
-    public District getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(District district) {
+    public void setDistrict(String district) {
         this.district = district;
     }
 

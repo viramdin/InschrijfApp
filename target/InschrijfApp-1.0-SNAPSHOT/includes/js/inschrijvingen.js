@@ -1,11 +1,13 @@
 let inschrijvingen;
 let scholen;
 
-populateInschrijvingenTabel();
+setTimeout(function() {
+    populateInschrijvingenTabel();
+}, 500);
 
 setTimeout(function() {
     populateScholenSelect();
-}, 250);
+}, 1000);
 
 
 
@@ -93,6 +95,7 @@ function addOrEdit(inschrijvingId) {
                 document.getElementById("geslacht").value = item.gegevens.geslacht;
                 document.getElementById("telefoon").value = item.gegevens.telefoonNr;
                 document.getElementById("email").value = item.gegevens.email;
+                document.getElementById("divRadio").style.display = "none";
                 document.getElementById("btnSave").style.display = "none";
             }
         });
@@ -106,6 +109,7 @@ function addOrEdit(inschrijvingId) {
         document.getElementById("geslacht").value = "";
         document.getElementById("telefoon").value = "";
         document.getElementById("email").value = "";
+        document.getElementById("divRadio").style.display = "block";
         document.getElementById("btnSave").style.display = "block";
     }
     openModal();

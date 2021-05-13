@@ -10,9 +10,11 @@ import java.util.List;
 
 public class SchoolDAO {
     private EntityManager entityManager;
+    private SchoolNiveauDAO niveauDAO;
 
     public SchoolDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
+        niveauDAO = new SchoolNiveauDAO(entityManager);
     }
 
     public List<School> retrieveSchoolList() {
@@ -31,31 +33,42 @@ public class SchoolDAO {
     }
 
     public School findSchoolById(long schoolId) {
-        entityManager.getTransaction().begin();
-        String jpql = "select s from school s where s.schoolId = :schoolId";
-        TypedQuery<School> query = entityManager.createQuery(jpql, School.class);
-        query.setParameter("schoolId", schoolId);
-        School school = query.getSingleResult();
-        entityManager.getTransaction().commit();
+        EntityTransaction transaction = entityManager.getTransaction();
+        School school = new School();
+        try {
+            transaction.begin();
+            String jpql = "select s from school s where s.schoolId = :schoolId";
+            TypedQuery<School> query = entityManager.createQuery(jpql, School.class);
+            query.setParameter("schoolId", schoolId);
+            school = query.getSingleResult();
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
         return school;
     }
 
-    public School insertSchool(School school) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(school);
-        entityManager.getTransaction().commit();
-        return school;
+    public void insertSchool(School school) {
+        school.setSchoolNiveau(niveauDAO.findSchoolNiveauById(school.getSchoolNiveau().getNiveauId()));
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            entityManager.persist(school);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
     }
 
     public void updateSchool(School school) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(school);
-        entityManager.getTransaction().commit();
-    }
-
-    public void deleteSchool(School school) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(school);
-        entityManager.getTransaction().commit();
+        school.setSchoolNiveau(niveauDAO.findSchoolNiveauById(school.getSchoolNiveau().getNiveauId()));
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            entityManager.persist(school);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
     }
 }
